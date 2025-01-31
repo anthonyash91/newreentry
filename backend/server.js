@@ -17,21 +17,22 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static(path.join(__dirname, "/frontend/build")));
+const __dirname = path.resolve();
 
 // routes
 app.use("/api/courses", coursesRoutes);
 app.use("/api/categories", categoriesRoutes);
 
-if (produc)
-  // connect to db
-  mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => {
-      app.listen(process.env.PORT, () => {
-        console.log(`listening on port ${process.env.PORT}`);
-      });
-    })
-    .catch((error) => {
-      console.log(error);
+app.use(express.static(path.join(__dirname, "/frontend/build")));
+
+// connect to db
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    app.listen(process.env.PORT, () => {
+      console.log(`listening on port ${process.env.PORT}`);
     });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
