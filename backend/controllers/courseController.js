@@ -32,6 +32,7 @@ const createCourse = async (req, res) => {
     englishLink,
     spanishLink,
     category,
+    contentType,
     active
   } = req.body;
 
@@ -42,8 +43,10 @@ const createCourse = async (req, res) => {
       englishLink,
       spanishLink,
       category,
+      contentType,
       active
     });
+
     res.status(200).json(course);
   } catch (error) {
     res.status(400).json({ error: error.message });

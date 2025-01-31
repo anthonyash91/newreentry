@@ -8,6 +8,7 @@ const courseSchema = new Schema(
     englishLink: { type: String, required: true },
     spanishLink: { type: String },
     category: { type: String, required: true },
+    contentType: { type: String, required: true },
     active: { type: Boolean, required: true }
   },
   { timestamps: true }

@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 const categorySchema = new Schema(
   {
-    englishTitle: { type: String, requird: true },
+    englishTitle: { type: String, required: true },
     spanishTitle: { type: String },
-    categoryImage: { type: String, requird: true }
+    categoryImage: { type: String, required: true }
   },
   { timestamps: true }
 );
